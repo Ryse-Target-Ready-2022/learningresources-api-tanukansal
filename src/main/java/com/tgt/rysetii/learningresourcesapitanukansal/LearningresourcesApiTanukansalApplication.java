@@ -8,6 +8,7 @@ public class LearningresourcesApiTanukansalApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LearningresourcesApiTanukansalApplication.class, args);
+		System.out.println("Hello World!!");
 	}
 
 }
