@@ -1,6 +1,6 @@
 package com.tgt.rysetii.learningresourcesapitanukansal.entity;
 import java.time.LocalDate;
-enum LearningResourceStatus {Planning, Published, Live, Retired;}
+//enum LearningResourceStatus {Planning, Published, Live, Retired;}
 
 public class LearningResources {
     private Integer id;
