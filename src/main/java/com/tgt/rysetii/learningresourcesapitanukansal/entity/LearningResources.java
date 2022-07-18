@@ -12,6 +12,10 @@ public class LearningResources {
     private LocalDate publishedDate;
     private LocalDate retiredDate;
 
+    public LearningResources(){
+
+    }
+
     public LearningResources(Integer id, String name, Double costPrice, Double sellingPrice, LearningResourceStatus productStatus, LocalDate createdDate, LocalDate publishedDate, LocalDate retiredDate){
         this.id=id;
         this.name=name;
