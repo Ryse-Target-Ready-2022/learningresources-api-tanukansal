@@ -17,8 +17,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 public class LearningResourceService {
-    private void saveLearningResources(List<LearningResources> resources){
+    public void saveLearningResources(List<LearningResources> resources){
         try{
             BufferedWriter bw=new BufferedWriter(new FileWriter("LearningResources.csv",true));
             for (LearningResources resource:resources){
@@ -80,6 +82,27 @@ public class LearningResourceService {
     }
     public  List<LearningResources> getLearningResources(){
         List<LearningResources> resources = loadLearningResources("LearningResources.csv");
+        return resources;
+    }
+
+    public List<Double> calculateProfitMargin(){
+        List<LearningResources> resources=getLearningResources();
+        List<Double> profitMargin = resources.stream()
+                .map(r -> ((r.getSellingPrice() - r.getCostPrice())/r.getSellingPrice()))
+                .collect(toList());
+
+        return profitMargin;
+    }
+    public List<LearningResources> sortByProfitMargin(){
+        List<LearningResources> resources = getLearningResources();
+
+        resources.sort((r1, r2) -> {
+            Double profitMargin1 = (r1.getSellingPrice() - r1.getCostPrice())/r1.getSellingPrice();
+            Double profitMargin2 = (r2.getSellingPrice() - r2.getCostPrice())/r2.getSellingPrice();
+
+            return profitMargin2.compareTo(profitMargin1) ;
+        });
+
         return resources;
     }
 }
