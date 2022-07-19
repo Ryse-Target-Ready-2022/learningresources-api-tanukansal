@@ -1,15 +1,28 @@
 package com.tgt.rysetii.learningresourcesapitanukansal.entity;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
-//enum LearningResourceStatus {Planning, Published, Live, Retired;}
 
-public class LearningResources {
+@Entity
+@Table(name="learningresource")
+public class LearningResources implements Serializable {
+    @Id
+    @Column(name="id")
     private Integer id;
+    @Column(name="name")
     private String name;
+    @Column(name="cost_price")
     private Double costPrice;
+    @Column(name="selling_price")
     private Double sellingPrice;
+    @Column(name="product_status")
+    @Enumerated(EnumType.STRING)
     private LearningResourceStatus productStatus;
+    @Column(name="created_date")
     private LocalDate createdDate;
+    @Column(name="published_date")
     private LocalDate publishedDate;
+    @Column(name="retired_date")
     private LocalDate retiredDate;
 
     public LearningResources(){
@@ -91,4 +104,17 @@ public class LearningResources {
         this.retiredDate = retiredDate;
     }
 
+    @Override
+    public String toString() {
+        return "LearningResource{" +
+                "learningResourceId=" + id +
+                ", learningResourceName='" + name + '\'' +
+                ", costPrice=" + costPrice +
+                ", sellingPrice=" + sellingPrice +
+                ", learningResourceStatus=" + productStatus +
+                ", createdDate=" + createdDate +
+                ", publishedDate=" + publishedDate +
+                ", retiredDate=" + retiredDate +
+                '}';
+    }
 }
