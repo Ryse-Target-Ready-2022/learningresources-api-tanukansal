@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/resources/v1")
+@RequestMapping("/resources")
 public class LearningResourceController {
     private final LearningResourceService learningResourceService;
 
