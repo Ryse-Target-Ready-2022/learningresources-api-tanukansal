@@ -21,13 +21,13 @@ public class LearningResourceController {
         return learningResourceService.getLearningResources();
     }
 
-    @PostMapping(value="/",consumes="application/json")
+    @PostMapping(value="/",consumes="application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveLearningResources(@RequestBody List<LearningResources> newResource){
           learningResourceService.saveLearningResources(newResource);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value="/{id}")
     public void deleteResource(@PathVariable Integer id){
         learningResourceService.deleteById(id);
     }
